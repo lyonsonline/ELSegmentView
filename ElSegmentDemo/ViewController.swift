@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let segmentView = ELSegmentView(titles: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
+        segmentView.delegate = self
         view.addSubview(segmentView)
         segmentView.snp.makeConstraints { (make) in
             make.left.top.right.equalToSuperview()
@@ -20,12 +21,17 @@ class ViewController: UIViewController {
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
 
-
 }
+extension ViewController: ELSegmentViewDelegate {
+    func segmentView(_ segmentView: ELSegmentView, didSelectRowAt index: Int) {
+        print(index)
+    }
+}
+
 

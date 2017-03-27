@@ -8,9 +8,18 @@
 
 import UIKit
 import SnapKit
+protocol ELSegmentViewDelegate: class {
+    func segmentView(_ segmentView: ELSegmentView, didSelectRowAt index: Int)
+}
+extension ELSegmentViewDelegate {
+    func segmentView(_ segmentView: ELSegmentView, didSelectRowAt index: Int) {
+        print("已点击:\(index)")
+    }
+}
 
 class ELSegmentView: UIView {
     public var titles:[String]!
+    public weak var delegate: ELSegmentViewDelegate?
     private var lineOffsetConstraint: Constraint?
     private var selectBtnIndex = 0
     private var buttonArry: [UIButton] = []
@@ -71,6 +80,7 @@ class ELSegmentView: UIView {
     
     func buttonDidSelected(_ btn: UIButton) {
         selectBtnIndex = btn.tag
+        delegate?.segmentView(self, didSelectRowAt: selectBtnIndex)
         //线段跟随btn移动更新约束
         self.lineOffsetConstraint?.deactivate()
         lineView.snp.makeConstraints { (make) in
