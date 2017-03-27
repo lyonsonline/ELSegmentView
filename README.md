@@ -1,5 +1,5 @@
 # ELSegmentView
-<center>![Demo](https://github.com/lyonsonline/ELSegmentView/blob/master/ELSegmentViewDemo.gif)</center>
+![Demo](https://github.com/lyonsonline/ELSegmentView/blob/master/ELSegmentViewDemo.gif)
 ## Requirements
 - iOS 8.0+ / Mac OS X 10.11+ / SnapKit
 - Xcode 8.0+
